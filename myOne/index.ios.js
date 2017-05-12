@@ -9,28 +9,141 @@ import {
   AppRegistry,
   StyleSheet,
   Text,
-  View
+  View,
+  Image,
+  TextInput
 } from 'react-native';
+
+import LoginView from './login';
+
+var dimensions = require('Dimensions');
+var ScreenWidth = dimensions.get('window').width;
 
 export default class myOne extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <Text style={styles.welcome}>
-          Welcome to React Native!
-        </Text>
+        <LoginView />
+
+        <Text style={styles.contentText}>宽度：{ScreenWidth}</Text>
+        <Text style={styles.contentTextOther}>分辨率：{dimensions.get('window').scale}</Text>
+        <Image
+          style={styles.contentImage}
+          source={require('./icon.png')}
+          // source={{uri: 'http://'}}
+        >
+          <Text style={styles.imageText}>我是文字</Text>
+        </Image>
+
+        <View style={styles.bottomBox}>
+          {this.renderAllBox()}
+        </View>
+
+
       </View>
     );
+  }
+
+  // ----------------------------包-------------------------------
+  renderAllBox() {
+    var allBox = [];
+
+    for (var i = 0; i < 6; i++)
+    {
+      allBox.push(
+        <Image key={i} style={styles.boxImage} source={require('./icon.png')}>
+          <Text style={styles.boxImageText}>
+            第一个包
+          </Text>
+        </Image>
+      )
+    }
+    return allBox;
   }
 }
 
 const styles = StyleSheet.create({
+  // -----------------------------基础练习--------------------------------
   container: {
-    flex: 1,
+    backgroundColor: 'pink',
+    flexDirection: 'row',
+    flexDirection: 'column',
+    // flexDirection: 'column-reverse',
+    // flexDirection: 'row-reverse',
+
+    justifyContent: 'flex-start',
+    justifyContent: 'flex-end',
     justifyContent: 'center',
+    justifyContent: 'space-between',
+    justifyContent: 'space-around',
+
+    alignItems: 'flex-start',
+    alignItems: 'flex-end',
+    alignItems: 'stretch',
     alignItems: 'center',
-    backgroundColor: '#F5FCFF',
-  }
+
+    flexWrap: 'nowrap',
+    flexWrap: 'wrap',
+    flex: 1
+  },
+  contentText: {
+    // marginTop: 25,
+    // width: 100,
+    backgroundColor: 'red',
+    height: 30,
+    flex: 2,
+    alignSelf: 'flex-start',
+  },
+  contentTextOther: {
+    // marginTop: 25,
+    // width: 200,
+    backgroundColor: 'blue',
+    height: 50,
+    flex: 1,
+    alignSelf: 'auto',
+    alignSelf: 'center',
+    alignSelf: 'stretch',
+    alignSelf: 'flex-end',
+    alignSelf: 'flex-start',
+  },
+  contentImage: {
+    backgroundColor: 'yellow',
+    width: 50,
+    height: 100,
+    borderRadius: 3,
+    // resizeMode: 'cover',
+    // resizeMode: 'contain',
+    // resizeMode: 'stretch',
+    // resizeMode: 'center',
+    resizeMode: 'repeat',  // 仅iOS
+    alignSelf: 'flex-end',
+  },
+  imageText: {
+    color: 'yellow',
+    backgroundColor: 'transparent',
+  },
+
+  // -----------------------------box--------------------------------
+  bottomBox: {
+    backgroundColor: 'blue',
+    width: ScreenWidth,
+    height: 250,
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    justifyContent: 'space-around',
+  },
+  boxImage: {
+    width: 95,
+    height: 95,
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'flex-end',
+    marginTop: 20
+  },
+  boxImageText: {
+    color: 'orange',
+    backgroundColor: 'transparent',
+  },
 });
 
 AppRegistry.registerComponent('myOne', () => myOne);
