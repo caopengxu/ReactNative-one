@@ -1,25 +1,40 @@
-/**
- * Created by cpx on 2017/5/12.
- */
+'use strict';
+
 import React, { Component } from 'react';
 import {
-  AppRegistry,
   StyleSheet,
   Text,
   View,
   TextInput,
   Image,
-  Button,
-  TouchableOpacity,
   TouchableHighlight,
-  AlertIOS,
 } from 'react-native';
 
 import Touchable from './components/Touchable';
 
-var screenWidth = require('Dimensions').get('window').width;
+let screenWidth = require('Dimensions').get('window').width;
 
 class LoginView extends Component {
+  // 构造
+  constructor(props) {
+    super(props);
+    // 初始状态
+    this.state = {
+      str: '登录'
+    };
+  }
+  state = {
+    str1: '登录成功'
+  };
+
+  // 定义一个属性，并指定类型
+  static defaultProps = {
+    strName: '登录成功'
+  };
+  static propTypes  = {
+    strName: React.PropTypes.string.isRequired,
+  };
+
   render() {
     return (
       <View style={styles.container}>
@@ -40,22 +55,33 @@ class LoginView extends Component {
           placeholder={'请输入密码'}
         />
 
-        <Touchable onPress={this.renderButtonClick} >
+        {/*<Touchable onPress={this.renderButtonClick} >*/}
+          {/**/}
+        {/*</Touchable>*/}
+        <TouchableHighlight
+          onPress={this.renderButtonClick}
+        >
           <View style={styles.loginButton}>
             <Text>
-              登录
+              {this.state.str}
             </Text>
           </View>
-        </Touchable>
-
+        </TouchableHighlight>
 
       </View>
     );
   }
 
-  // 点击登录
-  renderButtonClick() {
-    AlertIOS.alert('登录啦');
+  // // 点击登录
+  // renderButtonClick(e) {
+  //   this.setState({
+  //     str: '登录成功'
+  //   })
+  // }
+  renderButtonClick = () => {
+    this.setState({
+      str: '登录成功'
+    })
   }
 }
 

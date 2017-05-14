@@ -1,8 +1,4 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- * @flow
- */
+
 
 import React, { Component } from 'react';
 import {
@@ -11,35 +7,52 @@ import {
   Text,
   View,
   Image,
-  TextInput
 } from 'react-native';
 
 import LoginView from './login';
 
-var dimensions = require('Dimensions');
-var ScreenWidth = dimensions.get('window').width;
+let ScreenWidth = require('Dimensions').get('window').width;
+
+// let s = 'Hello world!';
+// s.startsWith('Hello');
+// s.endsWith('!');
+// s.includes('o');
 
 export default class myOne extends Component {
+  // 构造
+  constructor(props) {
+    super(props);
+    // 初始状态
+    this.state = {
+      str1: '123',
+      str2: '456'
+    }
+  }
+  // let x = do {
+  //   let t = f();
+  //   t * t + 1;
+  // };
+
+
+
   render() {
     return (
       <View style={styles.container}>
         <LoginView />
 
         <Text style={styles.contentText}>宽度：{ScreenWidth}</Text>
-        <Text style={styles.contentTextOther}>分辨率：{dimensions.get('window').scale}</Text>
+        <Text style={styles.contentTextOther}>分辨率：{require('Dimensions').get('window').scale}</Text>
         <Image
           style={styles.contentImage}
           source={require('./icon.png')}
           // source={{uri: 'http://'}}
         >
-          <Text style={styles.imageText}>我是文字</Text>
+          <Text style={styles.imageText}>我是文字{this.state.str1}</Text>
         </Image>
 
         <View style={styles.bottomBox}>
           {this.renderAllBox()}
         </View>
-
-
       </View>
     );
   }
@@ -61,6 +74,8 @@ export default class myOne extends Component {
     return allBox;
   }
 }
+
+
 
 const styles = StyleSheet.create({
   // -----------------------------基础练习--------------------------------
