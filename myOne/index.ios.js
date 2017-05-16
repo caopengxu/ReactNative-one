@@ -7,9 +7,14 @@ import {
   Text,
   View,
   Image,
+  StackNavigator,
 } from 'react-native';
 
+
 import LoginView from './login';
+import MyScrollView from './scrollView'
+import MyFlatList from './MyFlatList'
+import MyListView from './myListView'
 
 let ScreenWidth = require('Dimensions').get('window').width;
 
@@ -17,6 +22,11 @@ let ScreenWidth = require('Dimensions').get('window').width;
 // s.startsWith('Hello');
 // s.endsWith('!');
 // s.includes('o');
+
+// const App = StackNavigator({
+//   Main: {screen: MainScreen},
+//   Profile: {screen: ProfileScreen},
+// });
 
 export default class myOne extends Component {
   // 构造
@@ -33,12 +43,13 @@ export default class myOne extends Component {
   //   t * t + 1;
   // };
 
-
-
   render() {
     return (
       <View style={styles.container}>
-        <LoginView />
+        {/*<MyScrollView/>*/}
+        {/*<LoginView/>*/}
+        {/*<MyFlatList/>*/}
+        <MyListView/>
 
         <Text style={styles.contentText}>宽度：{ScreenWidth}</Text>
         <Text style={styles.contentTextOther}>分辨率：{require('Dimensions').get('window').scale}</Text>
@@ -142,18 +153,18 @@ const styles = StyleSheet.create({
   bottomBox: {
     backgroundColor: 'blue',
     width: ScreenWidth,
-    height: 250,
+    height: 200,
     flexDirection: 'row',
     flexWrap: 'wrap',
     justifyContent: 'space-around',
   },
   boxImage: {
-    width: 95,
-    height: 95,
+    width: 80,
+    height: 80,
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'flex-end',
-    marginTop: 20
+    marginTop: 10
   },
   boxImageText: {
     color: 'orange',

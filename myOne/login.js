@@ -89,7 +89,7 @@ const styles = StyleSheet.create({
   // -----------------------------login--------------------------------
   container: {
     width: screenWidth,
-    height: 250,
+    height: 200,
     backgroundColor: 'yellow',
     alignItems: 'center',
   },
