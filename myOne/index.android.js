@@ -5,12 +5,12 @@ import {
   AppRegistry,
 } from 'react-native';
 
-import LoginView from './login';
+import BothMain from './APP/BothMain'
 
 export default class myOne extends Component {
   render() {
     return (
-      <LoginView />
+      <BothMain/>
     );
   }
 }

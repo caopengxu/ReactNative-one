@@ -15,7 +15,8 @@ import MyScrollView from './scrollView'
 import MyFlatList from './MyFlatList'
 import MyListView from './listView/myListView'
 import NineListView from './listView/nineListView'
-import Main from './code/Main'
+import Main from './APP/Main'
+import BothMain from './APP/BothMain'
 
 let ScreenWidth = require('Dimensions').get('window').width;
 
@@ -42,7 +43,7 @@ export default class myOne extends Component {
 
   render() {
     return (
-      <Main/>
+      <BothMain/>
     );
   }
 
