@@ -33,7 +33,7 @@ class nineListView extends Component {
   allRow = (rowData,sectionID,rowID,highlightRow) => {
     return(
       <View style={styles.cellViewStyle}>
-        <Image style={styles.cellLeftImgaeStyle} source={require('../icon.png')}/>
+        <Image style={styles.cellLeftImgaeStyle} source={require('../APP/icon.png')}/>
         <View>
           <Text style={styles.cellTopTextStyle}>{rowData.name}</Text>
           <Text style={styles.cellBottomTextStyle}>¥{rowData.money}</Text>
